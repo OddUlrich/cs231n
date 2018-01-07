@@ -1,6 +1,5 @@
 import numpy as np
 from random import shuffle
-from past.builtins import xrange
 
 def softmax_loss_naive(W, X, y, reg):
   """
@@ -30,7 +29,12 @@ def softmax_loss_naive(W, X, y, reg):
   # here, it is easy to run into numeric instability. Don't forget the        #
   # regularization!                                                           #
   #############################################################################
-  pass
+  for i in xrange(X.shape[0]):
+    S[i] = X[i] * W
+    P[i, :] = np.exp(S[i, :]) / np.sum(np.exp(S[i]))
+    loss += -np.log(P[i, y[i]])
+    
+    
   #############################################################################
   #                          END OF YOUR CODE                                 #
   #############################################################################

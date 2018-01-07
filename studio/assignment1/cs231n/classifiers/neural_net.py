@@ -2,7 +2,6 @@ from __future__ import print_function
 
 import numpy as np
 import matplotlib.pyplot as plt
-from past.builtins import xrange
 
 class TwoLayerNet(object):
   """
@@ -58,7 +57,7 @@ class TwoLayerNet(object):
     If y is None, return a matrix scores of shape (N, C) where scores[i, c] is
     the score for class c on input X[i].
 
-    If y is not None, instead return a tuple of:
+    If y is not[ None, instead return a tuple of:
     - loss: Loss (data loss and regularization loss) for this batch of training
       samples.
     - grads: Dictionary mapping parameter names to gradients of those parameters
@@ -76,7 +75,8 @@ class TwoLayerNet(object):
     # Store the result in the scores variable, which should be an array of      #
     # shape (N, C).                                                             #
     #############################################################################
-    pass
+    for i in xrange(N):
+      scores[i] = (X[i] * W1 + b1) * W2 + b2
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
